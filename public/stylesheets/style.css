@@ -1,8 +1,13 @@
 body {
-  padding: 50px;
+  padding-top: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+img, video {
+  user-select:none;
+  -webkit-touch-callout:none;
 }
