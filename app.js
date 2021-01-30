@@ -16,8 +16,8 @@ User.sync().then(() => {
 });
 
 var TwitterStrategy = require('passport-twitter').Strategy;
-var consumer_key = "DsNiIek6Q6p8acZOLkbnd3Q00";
-var consumer_secret = "AulzX8JgAKpN8FdqLLAffqfmbGohK0KbN3Iluv2CxVgXkXW69V";
+var TWITTER_CONSUMER_KEY = process.env. TWITTER_CONSUMER_KEY
+var TWITTER_CONSUMER_SECRET = process.env.TWITTER_CONSUMER_SECRET
 
 // セッションに保存
 passport.serializeUser(function (user, done) {
@@ -30,9 +30,9 @@ passport.deserializeUser(function (obj, done) {
 });
 
 passport.use(new TwitterStrategy({
-  consumerKey: consumer_key,
-  consumerSecret: consumer_secret,
-  callbackURL: 'http://localhost:8000/auth/twitter/callback'
+  consumerKey: TWITTER_CONSUMER_KEY,
+  consumerSecret: TWITTER_CONSUMER_SECRET,
+  callbackURL: process.env.HEROKU_URL ? process.env.HEROKU_URL + 'auth/twitter/callback' : 'https://localhost:8000/auth/twitter/callback'
 },
   // 認証後の処理
   function (accessToken, refreshToken, profile, done) {

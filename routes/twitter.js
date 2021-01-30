@@ -10,11 +10,18 @@ const csrfProtection = csrf({ cookie: true });
 const authenticationEnsurer = require('./authentication-ensurer');
 
 // 上から API key, API secret key, Access token, Access token secret
+
+var TWITTER_CONSUMER_KEY = process.env. TWITTER_CONSUMER_KEY
+var TWITTER_CONSUMER_SECRET = process.env.TWITTER_CONSUMER_SECRET
+var TWITTER_ACCESS_TOKEN_KEY = process.env.TWITTER_ACCESS_TOKEN_KEY
+var TWITTER_ACCESS_TOKEN_SECRET = process.env.TWITTER_ACCESS_TOKEN_SECRET
+
+
 const client = new Twitter({
-  consumer_key: "DsNiIek6Q6p8acZOLkbnd3Q00",
-  consumer_secret: "AulzX8JgAKpN8FdqLLAffqfmbGohK0KbN3Iluv2CxVgXkXW69V",
-  access_token_key: "1348596376364466177-UAKrr1jWK6ldlBkDnoawXzFeTCMqzt",
-  access_token_secret: "y50Ek1YMscC0QVCWD8cyURm38MGU4xgSk6SKEY0EjnChM",
+  consumer_key: TWITTER_CONSUMER_KEY,
+  consumer_secret: TWITTER_CONSUMER_SECRET,
+  access_token_key: TWITTER_ACCESS_TOKEN_KEY,
+  access_token_secret: TWITTER_ACCESS_TOKEN_SECRET,
 });
 
 /**
