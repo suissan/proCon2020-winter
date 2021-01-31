@@ -96,6 +96,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_1__);
 
 
+var _this = undefined;
+
 
 var global = Function('return this;')();
 global.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
@@ -133,6 +135,28 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()('.form-button').each(function (i, 
         }
       });
     }
+  });
+});
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
+  var topBtn = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.to-top'); //ボタンを非表示にする
+
+  topBtn.hide(); //スクロールしてページトップから100に達したらボタンを表示
+
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scroll(function () {
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this).scrollTop() > 100) {
+      //フェードインで表示
+      topBtn.fadeIn();
+    } else {
+      //フェードアウトで非表示
+      topBtn.fadeOut();
+    }
+  }); //スクロールしてトップへ戻る
+
+  topBtn.click(function () {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('body,html').animate({
+      scrollTop: 0
+    }, 500);
+    return false;
   });
 });
 

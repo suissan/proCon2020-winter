@@ -23,7 +23,7 @@ img, video {
   bottom: 0;
   font-size: 50px;
   font-weight: bold;
-  color: rgb(0, 127, 231);
-  background: rgb(51, 50, 50);
+  color: #17a2b8;
+  background: #343a40;
   cursor: pointer;
 }
