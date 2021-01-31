@@ -36,19 +36,19 @@ $('.form-button').each((i, e) => {
 
 $(function () {
   const topBtn = $('.to-top');
-  topBtn.hide();
-  //スクロールしてページトップから100に達したらボタンを表示
+  topBtn.hide(); // formのhiddenと同じ「隠す」
+  // スクロールしてページトップから100に達したらボタンを表示
   $(window).scroll(function () {
-    if ($(this).scrollTop() > 100) {
-      topBtn.fadeIn();
+    if ($(this).scrollTop() > 100) { // .指定がないのでグローバルオブジェクトのウィンドウオブジェクト（？）
+      topBtn.fadeIn(); // 出現!!
     } else {
-      topBtn.fadeOut();
+      topBtn.fadeOut(); // 避難!!
     }
   });
-  //スクロールしてトップへ戻る
+  // スクロールしてトップへ戻る
   topBtn.click(function () {
     $('body,html').animate({
-      scrollTop: 0
+      scrollTop: 0 // トップへ戻る
     }, 500);
     return false;
   });

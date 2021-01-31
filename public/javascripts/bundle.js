@@ -137,19 +137,22 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()('.form-button').each(function (i, 
 });
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
   var topBtn = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.to-top');
-  topBtn.hide(); //スクロールしてページトップから100に達したらボタンを表示
+  topBtn.hide(); // formのhiddenと同じ「隠す」
+  // スクロールしてページトップから100に達したらボタンを表示
 
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scroll(function () {
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).scrollTop() > 100) {
-      topBtn.fadeIn();
+      // .指定がないのでグローバルオブジェクトのウィンドウオブジェクト（？）
+      topBtn.fadeIn(); // 出現!!
     } else {
-      topBtn.fadeOut();
+      topBtn.fadeOut(); // 避難!!
     }
-  }); //スクロールしてトップへ戻る
+  }); // スクロールしてトップへ戻る
 
   topBtn.click(function () {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('body,html').animate({
-      scrollTop: 0
+      scrollTop: 0 // トップへ戻る
+
     }, 500);
     return false;
   });

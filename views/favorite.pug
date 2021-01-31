@@ -18,9 +18,9 @@ block content
               if favorite.text.match(regularExpressionAtMedia) || favorite.text.match(regularExpressionAtHashtag)
                 - let newStr = favorite.text.replace(regularExpressionAtMedia, '').replace(regularExpressionAtHashtag, '')
                 h6 画像、動画、リンク、またはタグ付きのツイート
-                h4 #{newStr}
+                h4(style="white-space:pre;") #{newStr}
               else
-                h4 #{favorite.text}
+                h4(style="white-space:pre;") #{favorite.text}
               if favorite.video
                 if favorite.video.match(regularExpressionAt)
                   h6 現在この動画フォーマットに対応しておりません。実際のツイートからご覧ください。
