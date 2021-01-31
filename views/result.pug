@@ -17,11 +17,11 @@ block content
         - let imgColle = []
         div.card-body
           if twiStr.match(regularExpressionAtMedia) || twiStr.match(regularExpressionAtHashtag)
-            - let newStr = twiStr.replace(regularExpressionAtMedia, '').replace(regularExpressionAtHashtag, '<span style="color:aqua">A</span>')
+            - let newStr = twiStr.replace(regularExpressionAtMedia, '').replace(regularExpressionAtHashtag, '')
             p.text-primary 画像、動画、リンク、またはタグ付きのツイート
-            p(style="white-space:pre-wrap;") #{newStr}
+            h5(style="white-space:pre-wrap;") #{newStr}
           else
-            p(style="white-space:pre-wrap;") #{twiStr}
+            h5(style="white-space:pre-wrap;") #{twiStr}
           if tweet.extended_entities
             if tweet.extended_entities.media[0].video_info
               if tweet.extended_entities.media[0].video_info.variants[0].url.match(regularExpressionAt)
