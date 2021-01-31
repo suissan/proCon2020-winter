@@ -100,7 +100,6 @@ router.get('/favorite', authenticationEnsurer, csrfProtection, (req, res, next) 
       res.render('favorite', {
         user: req.user,
         favorites: favorites, // formattedUpdatedAtも含め、お気に入りしたツイートをfavorite.pugに描画
-        word: req.body.word,
         csrfToken: req.csrfToken()
       });
     });
