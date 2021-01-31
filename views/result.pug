@@ -16,8 +16,8 @@ block content
         - let imgColle = []
         div.card-body
           if twiStr.match(regularExpressionAtMedia) || twiStr.match(regularExpressionAtHashtag)
-            - let newStr = twiStr.replace(regularExpressionAtMedia, '').replace(regularExpressionAtHashtag, `${twiStr}.text-info`)
-            h6.text-primary 画像、動画、リンク、またはタグ付きのツイート
+            - let newStr = twiStr.replace(regularExpressionAtMedia, '').replace(regularExpressionAtHashtag, '')
+            p.text-primary 画像、動画、リンク、またはタグ付きのツイート
             p(style="white-space:pre;") #{newStr}
           else
             p(style="white-space:pre;") #{twiStr}
@@ -25,7 +25,7 @@ block content
             if tweet.extended_entities.media[0].video_info
               - let regularExpressionAt = /.m3u8/g
               if tweet.extended_entities.media[0].video_info.variants[0].url.match(regularExpressionAt)
-                h6.text-warning 現在この動画フォーマットに対応しておりません。実際のツイートからご覧ください。
+                p.text-warning 現在この動画フォーマットに対応しておりません。実際のツイートからご覧ください。
                 video(src=`${tweet.extended_entities.media[0].video_info.variants[0].url}`
                      width="30%" height="30%" controls oncontextmenu="return false;" controlsList="nodownload")
               else
