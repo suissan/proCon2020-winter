@@ -13,17 +13,17 @@ block content
         - let twiStr = tweet.full_text
         - let regularExpressionAtMedia = /(ftp|http|https):\/\/.+/g
         - let regularExpressionAtHashtag = /#.+/g
+        - let regularExpressionAt = /.m3u8/g
         - let imgColle = []
         div.card-body
           if twiStr.match(regularExpressionAtMedia) || twiStr.match(regularExpressionAtHashtag)
-            - let newStr = twiStr.replace(regularExpressionAtMedia, '').replace(regularExpressionAtHashtag, '')
+            - let newStr = twiStr.replace(regularExpressionAtMedia, '').replace(regularExpressionAtHashtag, '<span style="color:aqua">A</span>')
             p.text-primary 画像、動画、リンク、またはタグ付きのツイート
             p(style="white-space:pre-wrap;") #{newStr}
           else
             p(style="white-space:pre-wrap;") #{twiStr}
           if tweet.extended_entities
             if tweet.extended_entities.media[0].video_info
-              - let regularExpressionAt = /.m3u8/g
               if tweet.extended_entities.media[0].video_info.variants[0].url.match(regularExpressionAt)
                 p.text-warning 現在この動画フォーマットに対応しておりません。実際のツイートからご覧ください。
                 video(src=`${tweet.extended_entities.media[0].video_info.variants[0].url}`
