@@ -17,13 +17,13 @@ block content
             div.card-body
               if favorite.text.match(regularExpressionAtMedia) || favorite.text.match(regularExpressionAtHashtag)
                 - let newStr = favorite.text.replace(regularExpressionAtMedia, '').replace(regularExpressionAtHashtag, '')
-                h6 画像、動画、リンク、またはタグ付きのツイート
+                p.text-primary 画像、動画、リンク、またはタグ付きのツイート
                 p(style="white-space:pre;") #{newStr}
               else
                 p(style="white-space:pre;") #{favorite.text}
               if favorite.video
                 if favorite.video.match(regularExpressionAt)
-                  h6 現在この動画フォーマットに対応しておりません。実際のツイートからご覧ください。
+                  p.text-warning 現在この動画フォーマットに対応しておりません。実際のツイートからご覧ください。
                   video(src=`${favorite.video}` width="30%" height="30%" controls oncontextmenu="return false;" controlsList="nodownload")
                 else 
                   video(src=`${favorite.video}` width="30%" height="30%" controls oncontextmenu="return false;" controlsList="nodownload")
