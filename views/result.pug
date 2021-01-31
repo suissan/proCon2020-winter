@@ -18,9 +18,9 @@ block content
           if twiStr.match(regularExpressionAtMedia) || twiStr.match(regularExpressionAtHashtag)
             - let newStr = twiStr.replace(regularExpressionAtMedia, '').replace(regularExpressionAtHashtag, '')
             p.text-primary 画像、動画、リンク、またはタグ付きのツイート
-            p(style="white-space:pre;") #{newStr}
+            p(style="white-space:pre-wrap;") #{newStr}
           else
-            p(style="white-space:pre;") #{twiStr}
+            p(style="white-space:pre-wrap;") #{twiStr}
           if tweet.extended_entities
             if tweet.extended_entities.media[0].video_info
               - let regularExpressionAt = /.m3u8/g

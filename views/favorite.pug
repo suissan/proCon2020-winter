@@ -18,9 +18,9 @@ block content
               if favorite.text.match(regularExpressionAtMedia) || favorite.text.match(regularExpressionAtHashtag)
                 - let newStr = favorite.text.replace(regularExpressionAtMedia, '').replace(regularExpressionAtHashtag, '')
                 p.text-primary 画像、動画、リンク、またはタグ付きのツイート
-                p(style="white-space:pre;") #{newStr}
+                p(style="white-space:pre-wrap;") #{newStr}
               else
-                p(style="white-space:pre;") #{favorite.text}
+                p(style="white-space:pre-wrap;") #{favorite.text}
               if favorite.video
                 if favorite.video.match(regularExpressionAt)
                   p.text-warning 現在この動画フォーマットに対応しておりません。実際のツイートからご覧ください。
