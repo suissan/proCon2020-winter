@@ -10,6 +10,7 @@ const csrfProtection = csrf({ cookie: true });
 router.get('/', csrfProtection, (req, res, next) => {
   res.render('index', {
     user: req.user,
+    word: req.body.word,
     csrfToken: req.csrfToken()
   });
 });

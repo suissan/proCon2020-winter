@@ -14,7 +14,7 @@ html
       a(href="/").navbar-brand.nav-link えくすたーなるとぅいったー
       if user
         form(method="post" action="/tweets/result").form-inline
-          input(type="text" name="word").form-control.px-5
+          input(type="text" name="word" value=`${word}`placeholder="えくすたーなるとぅいったー" autocomplete="off").form-control.px-5
           input(type="hidden" name="_csrf" value!=csrfToken)
           button(type="submit").btn.btn-outline-info.mx-2 検索する
         a(href="/tweets/favorite").navbar-brand.nav-link お気に入りへ
