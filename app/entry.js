@@ -34,22 +34,19 @@ $('.form-button').each((i, e) => {
   });
 });
 
-$(() => {
-  var topBtn = $('.to-top');
-  //ボタンを非表示にする
+$(function () {
+  const topBtn = $('.to-top');
   topBtn.hide();
   //スクロールしてページトップから100に達したらボタンを表示
-  $(window).scroll(() => {
+  $(window).scroll(function () {
     if ($(this).scrollTop() > 100) {
-      //フェードインで表示
       topBtn.fadeIn();
     } else {
-      //フェードアウトで非表示
       topBtn.fadeOut();
     }
   });
   //スクロールしてトップへ戻る
-  topBtn.click(() => {
+  topBtn.click(function () {
     $('body,html').animate({
       scrollTop: 0
     }, 500);
