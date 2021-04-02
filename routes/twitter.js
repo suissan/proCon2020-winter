@@ -11,11 +11,10 @@ const authenticationEnsurer = require('./authentication-ensurer');
 
 // 上から API key, API secret key, Access token, Access token secret
 
-var TWITTER_CONSUMER_KEY = process.env. TWITTER_CONSUMER_KEY
-var TWITTER_CONSUMER_SECRET = process.env.TWITTER_CONSUMER_SECRET
-var TWITTER_ACCESS_TOKEN_KEY = process.env.TWITTER_ACCESS_TOKEN_KEY
-var TWITTER_ACCESS_TOKEN_SECRET = process.env.TWITTER_ACCESS_TOKEN_SECRET
-
+const TWITTER_CONSUMER_KEY = process.env. TWITTER_CONSUMER_KEY
+const TWITTER_CONSUMER_SECRET = process.env.TWITTER_CONSUMER_SECRET
+const TWITTER_ACCESS_TOKEN_KEY = process.env.TWITTER_ACCESS_TOKEN_KEY
+const TWITTER_ACCESS_TOKEN_SECRET = process.env.TWITTER_ACCESS_TOKEN_SECRET
 
 const client = new Twitter({
   consumer_key: TWITTER_CONSUMER_KEY,

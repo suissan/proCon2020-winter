@@ -1,23 +1,23 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var helmet = require('helmet');
-var session = require('express-session');
-var passport = require('passport');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const helmet = require('helmet');
+const session = require('express-session');
+const passport = require('passport');
 
 // モデルの読み込み
-var User = require('./models/user');
-var Favorite = require('./models/favorite');
+const User = require('./models/user');
+const Favorite = require('./models/favorite');
 User.sync().then(() => {
   Favorite.belongsTo(User, { foreignKey: 'clickedBy' });
   Favorite.sync();
 });
 
-var TwitterStrategy = require('passport-twitter').Strategy;
-var TWITTER_CONSUMER_KEY = process.env. TWITTER_CONSUMER_KEY
-var TWITTER_CONSUMER_SECRET = process.env.TWITTER_CONSUMER_SECRET
+const TwitterStrategy = require('passport-twitter').Strategy;
+const TWITTER_CONSUMER_KEY = process.env.TWITTER_CONSUMER_KEY
+const TWITTER_CONSUMER_SECRET = process.env.TWITTER_CONSUMER_SECRET
 
 // セッションに保存
 passport.serializeUser(function (user, done) {
@@ -47,13 +47,13 @@ passport.use(new TwitterStrategy({
   }
 ));
 
-var indexRouter = require('./routes/index');
-var loginRouter = require('./routes/login');
-var logoutRouter = require('./routes/logout');
-var twitterRouter = require('./routes/twitter');
-var favoriteRouter = require('./routes/favorite');
+const indexRouter = require('./routes/index');
+const loginRouter = require('./routes/login');
+const logoutRouter = require('./routes/logout');
+const twitterRouter = require('./routes/twitter');
+const favoriteRouter = require('./routes/favorite');
 
-var app = express();
+const app = express();
 app.use(helmet());
 
 // view engine setup
