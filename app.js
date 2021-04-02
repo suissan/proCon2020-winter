@@ -84,7 +84,7 @@ app.get('/auth/twitter',
 app.get('/auth/twitter/callback',
   passport.authenticate('twitter', { failureRedirect: '/login' }),
   function (req, res) {
-    var loginFrom = req.cookies.loginFrom;
+    const loginFrom = req.cookies.loginFrom;
     // オープンリダイレクタ脆弱性対策
     if (loginFrom &&
       !loginFrom.includes('http://') &&

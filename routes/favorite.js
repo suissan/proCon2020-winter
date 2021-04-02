@@ -2,8 +2,6 @@
 const express = require('express');
 const router = express.Router();
 const Favorite = require('../models/favorite');
-//const csrf = require('csurf');
-//const csrfProtection = csrf({ cookie: true });
 const authenticationEnsurer = require('./authentication-ensurer');
 
 // お気に入りを押されたツイートをデータベースに保存
